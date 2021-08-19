@@ -1,5 +1,6 @@
 package com.example.intent_0819
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -40,11 +41,19 @@ class MainActivity : AppCompatActivity() {
     private fun editNickName() {
         binding.editNickNameBtn.setOnClickListener {
             val intent = Intent(this@MainActivity, EditNickNameActivity::class.java)
-            startActivityForResult(intent, REQ_FOR_NICKNAME)
+            startActivityForResult(intent, ReQuestCode.NICKNAME)
         }
     }
 
-    companion object {
-        const val REQ_FOR_NICKNAME = 1000
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == ReQuestCode.NICKNAME) {
+            if (resultCode == Activity.RESULT_OK) {
+                val newNickName = data?.getStringExtra("NickName")
+
+                binding.NickName.text = newNickName
+            }
+        }
     }
 }
