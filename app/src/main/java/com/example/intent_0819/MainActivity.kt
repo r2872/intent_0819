@@ -20,8 +20,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun activityChange() {
         binding.acChangeBtn.setOnClickListener {
-            val intent = Intent(this, OtherActivity::class.java)
+            val intent = Intent(this@MainActivity, OtherActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }
