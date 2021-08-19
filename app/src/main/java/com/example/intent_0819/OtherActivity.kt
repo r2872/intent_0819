@@ -21,8 +21,8 @@ class OtherActivity : AppCompatActivity() {
 
     private fun activityChange() {
         binding.firstAcBtn.setOnClickListener {
-            val intent = Intent(this@OtherActivity, MainActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(this@OtherActivity, MainActivity::class.java)
+//            startActivity(intent)
             finish()
         }
     }

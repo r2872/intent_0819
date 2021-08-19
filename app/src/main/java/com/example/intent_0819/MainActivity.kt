@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         binding.acChangeBtn.setOnClickListener {
             val intent = Intent(this@MainActivity, OtherActivity::class.java)
             startActivity(intent)
-            finish()
         }
     }
 }
