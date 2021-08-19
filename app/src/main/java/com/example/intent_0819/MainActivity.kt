@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         activityChange()
         sendMessage()
+        editNickName()
     }
 
     private fun activityChange() {
@@ -34,5 +35,16 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("message", editText)
             startActivity(intent)
         }
+    }
+
+    private fun editNickName() {
+        binding.editNickNameBtn.setOnClickListener {
+            val intent = Intent(this@MainActivity, EditNickNameActivity::class.java)
+            startActivityForResult(intent, REQ_FOR_NICKNAME)
+        }
+    }
+
+    companion object {
+        const val REQ_FOR_NICKNAME = 1000
     }
 }
