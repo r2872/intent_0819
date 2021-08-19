@@ -16,11 +16,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         activityChange()
+        sendMessage()
     }
 
     private fun activityChange() {
         binding.acChangeBtn.setOnClickListener {
-            val intent = Intent(this@MainActivity, OtherActivity::class.java)
+//            val intent = Intent(this@MainActivity, OtherActivity::class.java)
+//            startActivity(intent)
+            startActivity(Intent(this@MainActivity, OtherActivity::class.java))
+        }
+    }
+
+    private fun sendMessage() {
+        binding.sendMessageBtn.setOnClickListener {
+            val editText = binding.messageEdt.text.toString()
+            val intent = Intent(this@MainActivity, ViewMessageActivity::class.java)
+            intent.putExtra("message", editText)
             startActivity(intent)
         }
     }
